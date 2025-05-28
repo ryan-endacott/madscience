@@ -1,0 +1,7 @@
+Location,Latitude,Longitude,Type,Field_Ocean_nT,Field_10km_Inland_nT,Gradient_nT_per_km,Gradient_Direction,Known_Mass_Strandings,Field_Ratio,Field_Difference,Gradient_Category,Risk_Score,Hemisphere,Ocean_Basin,Field_Intensity_Category
+"Cape Cod, USA",41.7,-70.0,control,52305.2,52334.2,1.93,landward,HIGH,1.0005544381820546,29.0,Neutral,MEDIUM,Northern,North_Atlantic,High
+"Farewell Spit, NZ",-40.5,172.7,control,52585.8,52891.1,20.35,landward,HIGH,1.0058057498412118,305.29999999999563,Strong_Landward,VERY_HIGH,Southern,South_Pacific,High
+"Tasmania, Australia",-42.0,147.0,control,61736.4,61755.7,1.29,landward,MEDIUM,1.0003126194595084,19.299999999995634,Neutral,MEDIUM,Southern,South_Pacific,Very_High
+"Matagorda-Padre, TX",28.3,-96.3,inverse,29556.8,29630.4,4.91,landward,NONE,1.0024901207167218,73.60000000000218,Neutral,MEDIUM,Northern,North_Atlantic,Very_Low
+"Banc d'Arguin, Mauritania",20.2,-16.3,inverse,26518.0,26539.1,1.41,landward,NONE,1.0007956859491665,21.099999999998545,Neutral,MEDIUM,Northern,Indian_Ocean,Very_Low
+Dutch Wadden Sea,53.4,6.0,inverse,49288.6,49250.3,-2.55,seaward,NONE,0.9992229440479138,-38.299999999995634,Weak_Seaward,LOW,Northern,North_Atlantic,Medium

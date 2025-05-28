@@ -241,6 +241,8 @@ def analyze_stranding_patterns(stranding_data, magnetic_gradients):
         results.append({
             'Location': location,
             'Type': mag_data['type'],
+            'Latitude': mag_data['lat'],
+            'Longitude': mag_data['lon'],
             'Magnetic_Gradient': mag_data['gradient'],
             'Gradient_Direction': mag_data['gradient_direction'],
             'Total_Events': total_strandings,

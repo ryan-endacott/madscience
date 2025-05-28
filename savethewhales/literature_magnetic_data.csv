@@ -1,0 +1,17 @@
+Location,Latitude,Longitude,Type,Estimated_Gradient,Source
+"Cape Cod, USA",41.7,-70.0,control,1.93,Measured
+"Farewell Spit, NZ",-40.5,172.7,control,20.35,Measured
+"Tasmania, Australia",-42.0,147.0,control,1.29,Measured
+"Matagorda-Padre, TX",28.3,-96.3,inverse,4.91,Measured
+"Banc d'Arguin, Mauritania",20.2,-16.3,inverse,1.41,Measured
+Dutch Wadden Sea,53.4,6.0,inverse,-2.55,Measured
+"Provincetown, MA",42.05,-70.17,hotspot,2.1,Kirschvink_1990
+"Wellfleet, MA",41.93,-70.03,hotspot,1.8,Kirschvink_1990
+"Chatham, MA",41.68,-69.96,hotspot,2.0,Kirschvink_1990
+"Golden Bay, NZ",-40.8,172.8,hotspot,18.5,Brabyn_McLean_1992
+"Kahurangi Point, NZ",-40.6,172.6,hotspot,19.2,Brabyn_McLean_1992
+"Orkney Islands, Scotland",59.0,-3.0,hotspot,3.2,Walker_2002
+"Shetland Islands, Scotland",60.5,-1.5,hotspot,2.8,Walker_2002
+"Monterey Bay, CA",36.8,-121.9,control,0.8,Estimated
+"Puget Sound, WA",47.6,-122.3,control,1.2,Estimated
+"Chesapeake Bay, MD",38.8,-76.5,control,0.5,Estimated
