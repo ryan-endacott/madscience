@@ -1,0 +1,7 @@
+Location,Latitude,Longitude,Type,Field_Ocean_nT,Field_10km_Inland_nT,Gradient_nT_per_km,Gradient_Direction,Known_Mass_Strandings
+"Cape Cod, USA",41.7,-70.0,control,52305.2,52334.2,1.93,landward,HIGH
+"Farewell Spit, NZ",-40.5,172.7,control,52585.8,52891.1,20.35,landward,HIGH
+"Tasmania, Australia",-42.0,147.0,control,61736.4,61755.7,1.29,landward,MEDIUM
+"Matagorda-Padre, TX",28.3,-96.3,inverse,29556.8,29630.4,4.91,landward,NONE
+"Banc d'Arguin, Mauritania",20.2,-16.3,inverse,26518.0,26539.1,1.41,landward,NONE
+"Dutch Wadden Sea",53.4,6.0,inverse,49288.6,49250.3,-2.55,seaward,NONE
