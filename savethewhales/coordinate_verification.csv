@@ -1,0 +1,17 @@
+Location,Latitude,Longitude,Bound_Issues,Accuracy_Check,Ocean_Land,Status
+"Cape Cod, USA",41.7,-70.0,[],VERIFIED - Very close to known coordinates,UNKNOWN,PASS
+"Farewell Spit, NZ",-40.5,172.7,[],VERIFIED - Very close to known coordinates,Should be coastal,PASS
+"Tasmania, Australia",-42.0,147.0,[],VERIFIED - Very close to known coordinates,UNKNOWN,PASS
+"Matagorda-Padre, TX",28.3,-96.3,[],UNKNOWN,UNKNOWN,REVIEW
+"Banc d'Arguin, Mauritania",20.2,-16.3,[],UNKNOWN,UNKNOWN,REVIEW
+Dutch Wadden Sea,53.4,6.0,[],VERIFIED - Very close to known coordinates,Should be marine,PASS
+"Provincetown, MA",42.05,-70.17,[],VERIFIED - Very close to known coordinates,UNKNOWN,PASS
+"Wellfleet, MA",41.93,-70.03,[],VERIFIED - Very close to known coordinates,UNKNOWN,PASS
+"Chatham, MA",41.68,-69.96,[],VERIFIED - Very close to known coordinates,UNKNOWN,PASS
+"Golden Bay, NZ",-40.8,172.8,[],UNKNOWN,Should be coastal,REVIEW
+"Kahurangi Point, NZ",-40.6,172.6,[],UNKNOWN,UNKNOWN,REVIEW
+"Orkney Islands, Scotland",59.0,-3.0,[],VERIFIED - Very close to known coordinates,Should be island coordinates,PASS
+"Shetland Islands, Scotland",60.5,-1.5,[],VERIFIED - Very close to known coordinates,Should be island coordinates,PASS
+"Monterey Bay, CA",36.8,-121.9,[],UNKNOWN,Should be coastal,REVIEW
+"Puget Sound, WA",47.6,-122.3,[],UNKNOWN,UNKNOWN,REVIEW
+"Chesapeake Bay, MD",38.8,-76.5,[],UNKNOWN,Should be coastal,REVIEW
