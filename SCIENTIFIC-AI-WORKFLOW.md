@@ -193,12 +193,30 @@ Each hypothesis gets a timestamped, immutable entry:
 4. **Question AI suggestions**: Push back when AI jumps to experiment design
 5. **Iterate rapidly**: Prefer many small tests over one big analysis
 
+### The Push Back Protocol
+When AI suggests jumping to experiments, always ask:
+- "What existing datasets could test this?"
+- "Can we simulate this computationally first?"
+- "What public databases haven't we checked?"
+- "Could literature meta-analysis answer this?"
+- "Is there a cheaper proxy measurement we could use?"
+
+This protocol is critical - it's the difference between Sprint Mode and traditional research.
+
 ### Documentation Guidelines
 1. **Never edit history**: Append new entries rather than modifying old ones
 2. **Timestamp everything**: Track the evolution of ideas
 3. **Link references**: Connect data to hypotheses to conclusions
 4. **Include failures**: Document what didn't work and why
 5. **Human insights**: Add your own observations and intuitions
+
+### Version Control Integration
+- Use Git for all code and data versioning
+- Commit frequently with descriptive messages  
+- Branch for exploratory analyses
+- Tag major hypothesis validations
+- Push to GitHub/GitLab for collaboration and reproducibility
+- `.gitignore` large data files but document their sources
 
 ### Mode Transition Guidelines
 1. **Clear transition criteria**: Know exactly when to switch modes
