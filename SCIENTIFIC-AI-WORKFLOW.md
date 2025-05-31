@@ -1,5 +1,24 @@
 # Scientific AI Sprint: The Zero-Typing Research Revolution
 
+**Version 0.2** - May 31, 2025
+
+## Changelog
+
+### Version 0.2 (2025-05-31)
+- **MAJOR**: Added Verification-First Rule as critical step
+- **ADDED**: Comprehensive list of common AI hallucination modes
+- **ADDED**: Verification Protocol with 5-step checklist
+- **UPDATED**: Whale example to reflect coordinate hallucination discovery
+- **ADDED**: FAQ entry on avoiding AI hallucinations
+- **UPDATED**: AI assistant instructions to prioritize verification
+
+### Version 0.1 (2025-01-14)
+- Initial release
+- Core Sprint Mode methodology
+- Push Back Protocol
+- Three ways to start
+- Basic workflow structure
+
 ## The Old Way is Backwards
 
 For centuries, science followed this rhythm: hypothesize → experiment → analyze → repeat. Each cycle takes months or years. Equipment must be built, grants secured, teams assembled. By the time results arrive, the world has moved on.
@@ -18,6 +37,26 @@ What if most answers are already hiding in the petabytes of data humanity has co
 3. Have a conversation. The AI handles everything else.
 
 **That's it.** No typing. No complex procedures. Just curiosity and conversation.
+
+## 🚨 CRITICAL: The Verification-First Rule
+
+**BEFORE any analysis, verify your foundational data!**
+
+AI hallucinates frequently and convincingly. Common failure modes:
+- **Coordinates**: AI generates plausible-looking lat/lng that are geographically nonsensical
+- **Citations**: References to papers that don't exist or are misrepresented  
+- **Data sources**: Claims about datasets that aren't real or accessible
+- **Units & scales**: Mixing up orders of magnitude, unit conversions, time scales
+- **Historical facts**: Wrong dates, locations, or causal relationships
+
+### The Verification Protocol:
+1. **Spot-check all foundational inputs** with independent sources
+2. **Visualize geographic data** on maps before analysis
+3. **Verify dataset accessibility** before building on claimed data
+4. **Cross-reference key citations** with actual papers
+5. **Sanity-check scales and magnitudes** against known benchmarks
+
+**Remember**: Hours spent verifying inputs saves months of invalid research.
 
 ## The Magic: You Explore, AI Documents
 
@@ -131,7 +170,7 @@ outputs/                     # Figures, reports the AI generated
 - Tests conventional explanations
 - Proposes novel hypotheses
 
-## Real Example: The Whale Discovery
+## Real Example: The Whale Discovery (And Its Lesson)
 
 **We didn't start as whale experts.** We asked AI: "What's a phenomenon where humanity lacks explanation, but existing data might hold the answer?"
 
@@ -141,11 +180,9 @@ outputs/                     # Figures, reports the AI generated
 - Hour 1: "Why do whales strand?"
 - Hour 2: AI finds magnetic/bathymetric data
 - Hour 24: Novel mechanism discovered
-- Hour 72: Hypothesis validated against global data
-- Zero new data collected
-- Total cost: Computing time
+- Hour 72: **MAJOR DISCOVERY** - All coordinates were hallucinated!
 
-The discovery? A novel "inclino-bathymetric focusing" mechanism that decades of field studies had missed.
+**The Critical Lesson**: Without geographic verification, we would have published completely invalid results. The workflow caught the error through visualization.
 
 ## Why This Changes Everything
 
@@ -155,10 +192,12 @@ The discovery? A novel "inclino-bathymetric focusing" mechanism that decades of 
 4. **Enables Iteration**: Fail fast, learn faster
 5. **Preserves Everything**: Perfect documentation without effort
 6. **Surfaces Hidden Connections**: AI sees patterns across disciplines humans miss
+7. **Catches AI Errors**: Verification steps prevent garbage-in-garbage-out
 
 ## Quick Reference Card
 
 **Start**: Just talk to your AI about something you're curious about
+**VERIFY FIRST**: Spot-check all foundational inputs before analysis
 **Sprint Mode**: Test everything with existing data first
 **Push Back**: Always ask what existing data could help
 **Document**: You don't - AI does it all
@@ -169,11 +208,14 @@ The discovery? A novel "inclino-bathymetric focusing" mechanism that decades of 
 **Q: Do I need to be a scientist?**
 A: No. Curiosity is enough. AI handles the technical parts.
 
+**Q: How do I avoid AI hallucinations?**
+A: Always verify foundational inputs. Visualize geographic data. Cross-check key claims.
+
 **Q: What if I want to type/edit?**
 A: You can always review and edit the journal, but it's never required.
 
 **Q: How do I know if my discovery is real?**
-A: The journal documents all evidence. Share it for peer review.
+A: The journal documents all evidence. Share it for peer review. Verify all inputs first.
 
 **Q: What AI should I use?**
 A: Any capable AI assistant. Better models = better results.
@@ -188,7 +230,7 @@ Share your discoveries. Build on others' findings. Help create a world where sci
 
 ---
 
-*Based on the whale stranding discovery: 72 hours from question to novel hypothesis, zero data collection, one transformative insight.*
+*Based on the whale stranding discovery: 72 hours from question to major methodological insight about AI limitations in research. Zero valid data, one transformative lesson about verification.*
 
 **#ScientificAISprint**
 
@@ -196,12 +238,14 @@ Share your discoveries. Build on others' findings. Help create a world where sci
 
 When a user references this Scientific AI Sprint framework, you should:
 
-1. **Start immediately** - Don't explain the methodology, just begin the sprint
-2. **Handle all documentation** - Create journal entries, code, and outputs automatically
-3. **Prioritize existing data** - Always search for available datasets before suggesting new experiments
-4. **Push back on premature experiments** - Use the Push Back Protocol questions
-5. **Document everything** - Timestamp entries, link sources, preserve the evolution of ideas
-6. **Make it conversational** - The user should feel like they're having a natural dialogue about their curiosity
-7. **Create the structure** - Generate `journal/JOURNAL-YYYY-MM-DD.md` files with all discoveries
+1. **Verify foundational data FIRST** - Don't proceed with analysis until core inputs are validated
+2. **Start immediately** - Don't explain the methodology, just begin the sprint (after verification)
+3. **Handle all documentation** - Create journal entries, code, and outputs automatically
+4. **Prioritize existing data** - Always search for available datasets before suggesting new experiments
+5. **Push back on premature experiments** - Use the Push Back Protocol questions
+6. **Document everything** - Timestamp entries, link sources, preserve the evolution of ideas
+7. **Make it conversational** - The user should feel like they're having a natural dialogue about their curiosity
+8. **Create the structure** - Generate `journal/JOURNAL-YYYY-MM-DD.md` files with all discoveries
+9. **Flag potential hallucinations** - When generating coordinates, citations, or data claims, prompt for verification
 
-Remember: The user types nothing. You capture everything. Make science feel like an exciting conversation, not work. 
+Remember: The user types nothing. You capture everything. But verify inputs first to prevent garbage-in-garbage-out scenarios. Make science feel like an exciting conversation, not work. 
