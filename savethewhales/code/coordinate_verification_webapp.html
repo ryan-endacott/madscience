@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whale Stranding Coordinate Verification | Scientific AI Sprint</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        
+        .header p {
+            margin: 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .controls {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .control-group label {
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.9em;
+        }
+        
+        select, input, button {
+            padding: 8px 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        
+        select:focus, input:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        button {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .map-container {
+            height: 600px;
+            position: relative;
+        }
+        
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .info-panel {
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .methodology-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .method-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .method-card.bgs {
+            border-left-color: #e74c3c;
+        }
+        
+        .method-card h3 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+        }
+        
+        .method-details {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px 15px;
+            align-items: center;
+        }
+        
+        .method-details strong {
+            color: #495057;
+        }
+        
+        .gradient-indicator {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8em;
+        }
+        
+        .gradient-positive {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .gradient-negative {
+            background: #4ecdc4;
+            color: white;
+        }
+        
+        .alert {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .alert h4 {
+            margin: 0 0 10px 0;
+            color: #856404;
+        }
+        
+        .alert p {
+            margin: 0;
+            color: #856404;
+        }
+        
+        .coordinates-display {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 0.9em;
+            border: 1px solid #dee2e6;
+        }
+        
+        .legend {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            max-width: 250px;
+        }
+        
+        .legend h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 1em;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 5px 0;
+            font-size: 0.85em;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐋 Coordinate Verification System</h1>
+            <p>Investigating the NOAA vs BGS Methodology Differences</p>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label>Select Site:</label>
+                <select id="siteSelect">
+                    <option value="cape_cod">Cape Cod, USA</option>
+                    <option value="farewell_spit">Farewell Spit, NZ</option>
+                    <option value="dutch_wadden">Dutch Wadden Sea</option>
+                    <option value="matagorda">Matagorda-Padre, TX</option>
+                    <option value="banc_arguin">Banc d'Arguin, Mauritania</option>
+                    <option value="tasmania">Tasmania, Australia</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>Show Method:</label>
+                <select id="methodSelect">
+                    <option value="both">Both Methods</option>
+                    <option value="noaa">NOAA Original Only</option>
+                    <option value="bgs">BGS Radial Only</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>Custom Coordinates:</label>
+                <input type="text" id="customCoords" placeholder="lat,lon (e.g. 41.7,-70.0)">
+            </div>
+            
+            <button onclick="addCustomPoint()">Add Point</button>
+            <button onclick="centerOnSite()">Center on Site</button>
+            <button onclick="downloadData()">Download Data</button>
+        </div>
+        
+        <div class="map-container">
+            <div id="map"></div>
+            <div class="legend">
+                <h4>Legend</h4>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ff6b6b;"></div>
+                    <span>Stranding Hotspot</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #4ecdc4;"></div>
+                    <span>Control Site</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #95e1d3;"></div>
+                    <span>NOAA Transect Points</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f38ba8;"></div>
+                    <span>BGS Radial Points</span>
+                </div>
+                <div class="legend-item">
+                    <div style="width: 12px; height: 2px; background: #2c3e50;"></div>
+                    <span>Gradient Direction</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <div class="alert">
+                <h4>🔍 Investigation Findings</h4>
+                <p>The replication failure appears to be caused by fundamental differences in measurement methodology, not coordinate errors. The BGS radial approach doesn't capture the same magnetic gradients as the original NOAA linear transects.</p>
+            </div>
+            
+            <div class="methodology-comparison">
+                <div class="method-card">
+                    <h3>🎯 Original NOAA Method</h3>
+                    <div class="method-details">
+                        <strong>Pattern:</strong> <span>Linear transects (A→D)</span>
+                        <strong>Distance:</strong> <span>15 km directed</span>
+                        <strong>Direction:</strong> <span>Seaward → Landward</span>
+                        <strong>Calculation:</strong> <span>(Field_D - Field_A) / 15km</span>
+                        <strong>Result:</strong> <span class="gradient-indicator gradient-positive">Mixed gradients</span>
+                    </div>
+                </div>
+                
+                <div class="method-card bgs">
+                    <h3>🌐 BGS Radial Method</h3>
+                    <div class="method-details">
+                        <strong>Pattern:</strong> <span>8-point radial circle</span>
+                        <strong>Distance:</strong> <span>50 km radius</span>
+                        <strong>Direction:</strong> <span>Inner ring → Outer ring</span>
+                        <strong>Calculation:</strong> <span>(Inner_avg - Outer_avg) / 50km</span>
+                        <strong>Result:</strong> <span class="gradient-indicator gradient-negative">Mostly negative</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="coordinates-display" id="coordsDisplay">
+                <strong>Current Site Data:</strong><br>
+                Select a site to see detailed coordinate information and gradient calculations.
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Site data with both methodologies
+        const sites = {
+            cape_cod: {
+                name: "Cape Cod, USA",
+                center: [41.70, -70.00],
+                type: "hotspot",
+                noaa: {
+                    gradient: +1.93,
+                    points: [
+                        {lat: 41.70, lon: -69.95, label: "A (Ocean)", field: 52305.2},
+                        {lat: 41.70, lon: -70.00, label: "B (Shore)", field: 52314.9},
+                        {lat: 41.70, lon: -70.05, label: "C", field: 52324.5},
+                        {lat: 41.70, lon: -70.10, label: "D (Land)", field: 52334.2}
+                    ]
+                },
+                bgs: {
+                    gradient: -1.68,
+                    center: [41.70, -70.00],
+                    radius: 50
+                }
+            },
+            farewell_spit: {
+                name: "Farewell Spit, NZ", 
+                center: [-40.50, 172.70],
+                type: "hotspot",
+                noaa: {
+                    gradient: -2.27,
+                    points: [
+                        {lat: -40.50, lon: 172.65, label: "A (Ocean)", field: 56292.1},
+                        {lat: -40.50, lon: 172.70, label: "B (Shore)", field: 56280.7},
+                        {lat: -40.50, lon: 172.75, label: "C", field: 56269.4},
+                        {lat: -40.50, lon: 172.80, label: "D (Land)", field: 56258.0}
+                    ]
+                },
+                bgs: {
+                    gradient: -1.93,
+                    center: [-40.50, 172.70],
+                    radius: 50
+                }
+            },
+            dutch_wadden: {
+                name: "Dutch Wadden Sea",
+                center: [53.40, 6.00],
+                type: "control",
+                noaa: {
+                    gradient: -2.55,
+                    points: [
+                        {lat: 53.45, lon: 6.00, label: "A (Ocean)", field: 49288.6},
+                        {lat: 53.40, lon: 6.00, label: "B", field: 49275.9},
+                        {lat: 53.35, lon: 6.00, label: "C", field: 49263.1},
+                        {lat: 53.30, lon: 6.00, label: "D (Land)", field: 49250.3}
+                    ]
+                },
+                bgs: {
+                    gradient: +0.38,
+                    center: [53.40, 6.00],
+                    radius: 50
+                }
+            },
+            matagorda: {
+                name: "Matagorda-Padre, TX",
+                center: [28.30, -96.30],
+                type: "control",
+                noaa: {
+                    gradient: +2.56,
+                    points: [
+                        {lat: 28.30, lon: -96.25, label: "A (Ocean)", field: 29568.5},
+                        {lat: 28.30, lon: -96.30, label: "B", field: 29581.3},
+                        {lat: 28.30, lon: -96.35, label: "C", field: 29594.1},
+                        {lat: 28.30, lon: -96.40, label: "D (Land)", field: 29606.9}
+                    ]
+                },
+                bgs: {
+                    gradient: +1.15,
+                    center: [28.30, -96.30],
+                    radius: 50
+                }
+            },
+            banc_arguin: {
+                name: "Banc d'Arguin, Mauritania",
+                center: [20.20, -16.30],
+                type: "control",
+                noaa: {
+                    gradient: +1.41,
+                    points: [
+                        {lat: 20.20, lon: -16.35, label: "A (Ocean)", field: 26518.0},
+                        {lat: 20.20, lon: -16.30, label: "B", field: 26525.1},
+                        {lat: 20.20, lon: -16.25, label: "C", field: 26532.1},
+                        {lat: 20.20, lon: -16.20, label: "D (Land)", field: 26539.1}
+                    ]
+                },
+                bgs: {
+                    gradient: -0.67,
+                    center: [20.20, -16.30],
+                    radius: 50
+                }
+            },
+            tasmania: {
+                name: "Tasmania, Australia",
+                center: [-42.10, 147.00],
+                type: "hotspot",
+                noaa: {
+                    gradient: +1.29,
+                    points: [
+                        {lat: -42.10, lon: 147.05, label: "A (Ocean)", field: 61779.8},
+                        {lat: -42.10, lon: 147.00, label: "B", field: 61786.2},
+                        {lat: -42.10, lon: 146.95, label: "C", field: 61792.7},
+                        {lat: -42.10, lon: 146.90, label: "D (Land)", field: 61799.1}
+                    ]
+                },
+                bgs: {
+                    gradient: +0.82,
+                    center: [-42.10, 147.00],
+                    radius: 50
+                }
+            }
+        };
+
+        // Initialize map
+        let map = L.map('map').setView([20, 0], 2);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        let currentLayers = [];
+
+        function clearLayers() {
+            currentLayers.forEach(layer => map.removeLayer(layer));
+            currentLayers = [];
+        }
+
+        function showSite(siteKey) {
+            clearLayers();
+            const site = sites[siteKey];
+            const method = document.getElementById('methodSelect').value;
+            
+            // Site center marker
+            const centerMarker = L.marker(site.center, {
+                icon: L.divIcon({
+                    className: 'custom-marker',
+                    html: `<div style="background: ${site.type === 'hotspot' ? '#ff6b6b' : '#4ecdc4'}; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);"></div>`,
+                    iconSize: [20, 20],
+                    iconAnchor: [10, 10]
+                })
+            }).addTo(map).bindPopup(`<strong>${site.name}</strong><br>Type: ${site.type}`);
+            currentLayers.push(centerMarker);
+
+            // NOAA transect points and lines
+            if (method === 'both' || method === 'noaa') {
+                site.noaa.points.forEach((point, i) => {
+                    const marker = L.marker([point.lat, point.lon], {
+                        icon: L.divIcon({
+                            className: 'noaa-marker',
+                            html: `<div style="background: #95e1d3; width: 15px; height: 15px; border-radius: 50%; border: 2px solid #2c3e50; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">${point.label.charAt(0)}</div>`,
+                            iconSize: [15, 15],
+                            iconAnchor: [7.5, 7.5]
+                        })
+                    }).addTo(map).bindPopup(`<strong>NOAA ${point.label}</strong><br>Lat: ${point.lat}<br>Lon: ${point.lon}<br>Field: ${point.field} nT`);
+                    currentLayers.push(marker);
+                });
+
+                // Draw transect line
+                const transectLine = L.polyline(site.noaa.points.map(p => [p.lat, p.lon]), {
+                    color: '#2c3e50',
+                    weight: 3,
+                    opacity: 0.8
+                }).addTo(map).bindPopup(`NOAA Transect<br>Gradient: ${site.noaa.gradient > 0 ? '+' : ''}${site.noaa.gradient} nT/km`);
+                currentLayers.push(transectLine);
+            }
+
+            // BGS radial pattern
+            if (method === 'both' || method === 'bgs') {
+                const radiusInDegrees = site.bgs.radius / 111.32; // Convert km to degrees
+                
+                // Draw circle
+                const circle = L.circle(site.bgs.center, {
+                    radius: site.bgs.radius * 1000, // Convert to meters
+                    fillColor: '#f38ba8',
+                    color: '#e74c3c',
+                    weight: 2,
+                    opacity: 0.6,
+                    fillOpacity: 0.1
+                }).addTo(map).bindPopup(`BGS Radial Pattern<br>Radius: ${site.bgs.radius} km<br>Gradient: ${site.bgs.gradient > 0 ? '+' : ''}${site.bgs.gradient} nT/km`);
+                currentLayers.push(circle);
+
+                // 8 radial points
+                const angles = [0, 45, 90, 135, 180, 225, 270, 315];
+                angles.forEach((angle, i) => {
+                    const radians = angle * Math.PI / 180;
+                    const lat = site.bgs.center[0] + radiusInDegrees * Math.cos(radians);
+                    const lon = site.bgs.center[1] + radiusInDegrees * Math.sin(radians) / Math.cos(site.bgs.center[0] * Math.PI / 180);
+                    
+                    const marker = L.marker([lat, lon], {
+                        icon: L.divIcon({
+                            className: 'bgs-marker',
+                            html: `<div style="background: #f38ba8; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #e74c3c;"></div>`,
+                            iconSize: [12, 12],
+                            iconAnchor: [6, 6]
+                        })
+                    }).addTo(map).bindPopup(`BGS Point ${i+1}<br>Angle: ${angle}°<br>Lat: ${lat.toFixed(3)}<br>Lon: ${lon.toFixed(3)}`);
+                    currentLayers.push(marker);
+                });
+            }
+
+            // Update coordinates display
+            updateCoordsDisplay(site);
+            
+            // Center map on site
+            map.setView(site.center, 8);
+        }
+
+        function updateCoordsDisplay(site) {
+            const html = `
+                <strong>${site.name}</strong><br><br>
+                
+                <strong>NOAA Method:</strong><br>
+                • Gradient: ${site.noaa.gradient > 0 ? '+' : ''}${site.noaa.gradient} nT/km<br>
+                • Pattern: Linear transect (A→D)<br>
+                • Distance: 15 km<br><br>
+                
+                <strong>BGS Method:</strong><br>
+                • Gradient: ${site.bgs.gradient > 0 ? '+' : ''}${site.bgs.gradient} nT/km<br>
+                • Pattern: Radial (8-point circle)<br>
+                • Distance: ${site.bgs.radius} km radius<br><br>
+                
+                <strong>Difference:</strong> ${Math.abs(site.noaa.gradient - site.bgs.gradient).toFixed(2)} nT/km<br>
+                <strong>Status:</strong> ${Math.abs(site.noaa.gradient - site.bgs.gradient) > 1 ? '⚠️ Significant difference' : '✅ Close match'}
+            `;
+            document.getElementById('coordsDisplay').innerHTML = html;
+        }
+
+        function centerOnSite() {
+            const siteKey = document.getElementById('siteSelect').value;
+            const site = sites[siteKey];
+            map.setView(site.center, 8);
+        }
+
+        function addCustomPoint() {
+            const coords = document.getElementById('customCoords').value;
+            if (coords) {
+                const [lat, lon] = coords.split(',').map(x => parseFloat(x.trim()));
+                if (!isNaN(lat) && !isNaN(lon)) {
+                    const marker = L.marker([lat, lon], {
+                        icon: L.divIcon({
+                            className: 'custom-point',
+                            html: '<div style="background: #f39c12; width: 15px; height: 15px; border-radius: 50%; border: 2px solid white;">📍</div>',
+                            iconSize: [15, 15],
+                            iconAnchor: [7.5, 7.5]
+                        })
+                    }).addTo(map).bindPopup(`Custom Point<br>Lat: ${lat}<br>Lon: ${lon}`);
+                    currentLayers.push(marker);
+                    map.setView([lat, lon], 8);
+                }
+            }
+        }
+
+        function downloadData() {
+            const siteKey = document.getElementById('siteSelect').value;
+            const site = sites[siteKey];
+            
+            let csvContent = "Method,Point,Latitude,Longitude,Label,Field_nT,Gradient_nT_per_km\n";
+            
+            // NOAA data
+            site.noaa.points.forEach(point => {
+                csvContent += `NOAA,${point.label},${point.lat},${point.lon},${point.label},${point.field},${site.noaa.gradient}\n`;
+            });
+            
+            // BGS data (simplified)
+            csvContent += `BGS,Center,${site.center[0]},${site.center[1]},Center,N/A,${site.bgs.gradient}\n`;
+            
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${site.name.replace(/[^a-zA-Z0-9]/g, '_')}_coordinates.csv`;
+            a.click();
+        }
+
+        // Event listeners
+        document.getElementById('siteSelect').addEventListener('change', (e) => {
+            showSite(e.target.value);
+        });
+
+        document.getElementById('methodSelect').addEventListener('change', (e) => {
+            showSite(document.getElementById('siteSelect').value);
+        });
+
+        // Initialize with first site
+        showSite('cape_cod');
+    </script>
+</body>
+</html> 
