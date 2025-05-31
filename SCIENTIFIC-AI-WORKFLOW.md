@@ -45,6 +45,26 @@ We're sitting on a goldmine. Decades of scientific data languish in public repos
 - You know exactly what new data would be decisive
 - The cost is justified by the potential insight
 
+## What Counts as "Existing Data"?
+
+**Sprint Mode INCLUDES**:
+- Downloading from any public API or database
+- Extracting data from published papers
+- Mining government repositories
+- Accessing satellite/sensor archives
+- Using commercial datasets you can purchase
+- Finding better APIs for data you need
+
+**Experimental Mode is ONLY**:
+- Deploying physical sensors
+- Running field studies
+- Collecting biological samples
+- Conducting laboratory experiments
+- Any activity requiring IRB approval
+- Anything that generates data that didn't exist before
+
+**The key distinction**: If the data exists somewhere in the world, getting it is Sprint Mode. Only creating genuinely NEW data is Experimental Mode.
+
 ## The Push Back Protocol
 
 When anyone (including AI) suggests collecting new data, always ask:
