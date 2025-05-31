@@ -16,6 +16,18 @@ In 72 hours, using public magnetic field databases and bathymetric maps, we disc
 
 We didn't collect a single new data point.
 
+## The Discovery of Discovery
+
+But here's the even more remarkable part: we didn't start out studying whales.
+
+We started with a question to an AI: *"What's an example of a phenomenon where humanity lacks a good explanation, but taking into account all human knowledge, an explanation is actually possible? It must not be a hypothesis previously proposed anywhere."*
+
+No PhD in marine biology. No years studying cetaceans. Just curiosity and the right question.
+
+The AI surfaced whale strandings—a centuries-old mystery that has puzzled scientists, devastated communities, and killed thousands of intelligent creatures. Within 72 hours, by following the Sprint methodology, we had a novel, testable hypothesis that could save lives.
+
+**This is the real revolution: AI doesn't just help us answer questions faster. It helps us find the right questions to ask.**
+
 ## The Sprint Mode Revolution
 
 This is **Sprint Mode**: a new way of doing science that exhausts the knowable before seeking the unknown.

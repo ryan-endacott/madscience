@@ -122,6 +122,14 @@ Each hypothesis gets a timestamped, immutable entry:
 
 ## Workflow Phases
 
+### Phase 0: Problem Discovery (Optional)
+- **Input**: Curiosity about solvable mysteries
+- **Process**: Query AI for phenomena that lack explanations but have available data
+- **Output**: High-potential research questions
+- **Mode**: Pre-Sprint exploration
+
+This phase is revolutionary - you don't need domain expertise to identify important unsolved problems. AI can help surface mysteries where existing data might hold answers.
+
 ### Phase 1: Hypothesis Generation
 - **Input**: Problem statement, existing literature
 - **Process**: AI-assisted brainstorming, literature synthesis
