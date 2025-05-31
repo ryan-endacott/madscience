@@ -49,14 +49,29 @@ AI hallucinates frequently and convincingly. Common failure modes:
 - **Units & scales**: Mixing up orders of magnitude, unit conversions, time scales
 - **Historical facts**: Wrong dates, locations, or causal relationships
 
+### ⚠️ SPECIAL CASE: Geographic Coordinates REQUIRE Human Verification
+
+**CRITICAL LIMITATION**: AI CANNOT verify geographic coordinates. Only humans looking at maps can determine:
+- Whether coordinates are coastal vs inland
+- Whether coordinates represent correct geographic features
+- Whether measurement points are properly positioned
+- Whether transect orientations make geographic sense
+
+**For any geographic research:**
+1. **AI can identify coordinate discrepancies** but cannot verify correctness
+2. **Human must visually verify ALL coordinates on maps**  
+3. **Transect points must be manually positioned by humans**
+4. **Geographic context must be human-validated**
+
 ### The Verification Protocol:
 1. **Spot-check all foundational inputs** with independent sources
-2. **Visualize geographic data** on maps before analysis
-3. **Verify dataset accessibility** before building on claimed data
-4. **Cross-reference key citations** with actual papers
-5. **Sanity-check scales and magnitudes** against known benchmarks
+2. **🗺️ HUMAN MAP VERIFICATION REQUIRED** for any geographic coordinates
+3. **Visualize geographic data** on maps before analysis
+4. **Verify dataset accessibility** before building on claimed data
+5. **Cross-reference key citations** with actual papers
+6. **Sanity-check scales and magnitudes** against known benchmarks
 
-**Remember**: Hours spent verifying inputs saves months of invalid research.
+**Remember**: Hours spent verifying inputs saves months of invalid research. Geographic coordinates require mandatory human verification.
 
 ## The Magic: You Explore, AI Documents
 
