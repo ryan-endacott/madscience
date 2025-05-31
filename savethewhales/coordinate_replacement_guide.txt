@@ -1,0 +1,55 @@
+COORDINATE REPLACEMENT GUIDE
+==================================================
+
+Use these verified coordinates to replace the AI-generated ones:
+
+# Cape Cod, Massachusetts
+# Source: USGS Geographic Names Information System
+# Discrepancy from AI coords: 2.58 km
+'lat': 41.6892, 'lon': -70.0275
+
+# Farewell Spit, New Zealand
+# Source: New Zealand Department of Conservation
+# Discrepancy from AI coords: 5.92 km
+'lat': -40.5109, 'lon': 172.7685
+
+# Dutch Wadden Sea, Netherlands
+# Source: UNESCO World Heritage Centre
+# Discrepancy from AI coords: 8.03 km
+'lat': 53.4084, 'lon': 6.1203
+
+# Tasmania, Australia
+# Source: Geoscience Australia
+# Discrepancy from AI coords: 104.76 km
+'lat': -41.4545, 'lon': 145.9707
+
+# Matagorda-Padre Island, Texas
+# Source: USGS Geographic Names Database
+# Discrepancy from AI coords: 99.24 km
+'lat': 27.8506, 'lon': -97.1739
+
+# Banc d'Arguin, Mauritania
+# Source: UNESCO World Heritage Centre
+# Discrepancy from AI coords: 2.55 km
+'lat': 20.2167, 'lon': -16.2833
+
+# Orkney Islands, Scotland
+# Source: Ordnance Survey UK
+# Discrepancy from AI coords: 2.86 km
+'lat': 59.0000, 'lon': -3.0500
+
+# Prince Edward Island, Canada
+# Source: Natural Resources Canada
+# Discrepancy from AI coords: 6.48 km
+'lat': 46.5107, 'lon': -63.4168
+
+# Golden Bay, New Zealand
+# Source: Land Information New Zealand
+# Discrepancy from AI coords: 4.60 km
+'lat': -40.7833, 'lon': 172.8500
+
+# Chatham Islands, New Zealand
+# Source: Land Information New Zealand
+# Discrepancy from AI coords: 6.85 km
+'lat': -43.9500, 'lon': -176.5500
+

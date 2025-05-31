@@ -1,0 +1,11 @@
+Site_Name,Latitude,Longitude,Source,Confidence,Original_Discrepancy_km
+"Cape Cod, Massachusetts",41.6892,-70.0275,USGS Geographic Names Information System,Very High,2.5798574635106917
+"Farewell Spit, New Zealand",-40.5109,172.7685,New Zealand Department of Conservation,Very High,5.916895934191491
+"Dutch Wadden Sea, Netherlands",53.4084,6.1203,UNESCO World Heritage Centre,Very High,8.02927553094709
+"Tasmania, Australia",-41.4545,145.9707,Geoscience Australia,High,104.76322950714946
+"Matagorda-Padre Island, Texas",27.8506,-97.1739,USGS Geographic Names Database,High,99.23784860455854
+"Banc d'Arguin, Mauritania",20.2167,-16.2833,UNESCO World Heritage Centre,Very High,2.546585617490904
+"Orkney Islands, Scotland",59.0,-3.05,Ordnance Survey UK,Very High,2.863480981180017
+"Prince Edward Island, Canada",46.5107,-63.4168,Natural Resources Canada,Very High,6.477830452956258
+"Golden Bay, New Zealand",-40.7833,172.85,Land Information New Zealand,High,4.600641056805028
+"Chatham Islands, New Zealand",-43.95,-176.55,Land Information New Zealand,High,6.851714053489504
