@@ -1,5 +1,20 @@
 # Whale Stranding Dual-Cue Hypothesis Analysis
 
+> **⚠️ CURRENT STATUS (2025-06-12): HUMAN VERIFICATION REQUIRED!**
+> 
+> This project is currently blocked pending **mandatory human verification of all geographic coordinates.** AI-generated coordinates have been found to be unreliable and potentially hallucinatory.
+>
+> **DO NOT PROCEED WITH ANY ANALYSIS.**
+>
+> **Required Reading:**
+> 1.  **The Workflow:** Read the `@/SCIENTIFIC-AI-WORKFLOW.md`, especially the **Verification-First Rule**.
+> 2.  **The Discovery:** Read the journal entry `@/savethewhales/journal/JOURNAL-2025-05-31.md` which details the coordinate problem.
+>
+> **Required Next Action:**
+> -   Launch the `@/savethewhales/code/coordinate_verification_webapp.html`.
+> -   Begin the manual, human-led process of verifying and correcting each coordinate against a map.
+> -   Update `@/savethewhales/data/whale_stranding_sites_verified.json` with the validated coordinates.
+
 ## 🐋 Overview
 
 This repository tests a novel hypothesis for pilot whale mass strandings: that the co-occurrence of specific magnetic field gradients and acoustic conditions creates "navigation traps" leading to mass stranding events.
