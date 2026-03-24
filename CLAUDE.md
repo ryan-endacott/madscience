@@ -74,21 +74,34 @@ The study tested whether magnetic field gradients influence pilot whale mass str
 - The discrepancy is attributed to methodology differences (linear vs radial transects, 15km vs 50km scale), NOT coordinate errors
 - **All coordinates still need human verification on maps** — see `data/whale_stranding_sites_verified.json`
 
+### March 2026 Update: Data Integrity Audit
+
+The May 2025 "NOAA gradient values" were **hallucinated by AI**. The raw field values are internally inconsistent and don't match actual IGRF-14 model output. Two sites had ~100km coordinate errors. See `journal/JOURNAL-2026-03-24.md` for full audit.
+
+**Verified results using local IGRF-14 computation (15 sites)**:
+- Simple gradient hypothesis: **FAILS** (t=-0.007, no difference between hotspots and controls)
+- Inclination isoline geometry: **NOT SIGNIFICANT** (t=-0.659)
+- Scale sensitivity: **None** (5km, 15km, 50km identical)
+- IGRF is too coarse (~3000km wavelength) to test local magnetic anomaly hypotheses
+
 ### What needs to happen next
 
-1. Human verification of all coordinates on actual maps
-2. Replicate NOAA linear transect methodology using BGS API data
-3. Scale sensitivity analysis (5km, 15km, 50km transects)
-4. Cross-validation with both methods on same sites
+1. **Obtain crustal anomaly data** — EMAG2v3 (~3.7km resolution) or national aeromagnetic surveys
+2. **Obtain bathymetry data** — GEBCO for coastline geometry and 30m depth contours
+3. **Re-run isoline curvature analysis** with crustal-resolution data where local anomalies are visible
+4. Human verification of remaining coordinates on actual maps
 
 ### Key data files
 
 | File | Contents |
 |------|----------|
-| `data/magnetic_gradients.csv` | Original NOAA gradient measurements (3 sites) |
-| `data/bgs_magnetic_survey_2025-05-31.csv` | BGS survey of 15 sites (contradictory results) |
-| `data/whale_stranding_sites_verified.json` | All site coordinates — UNVERIFIED by humans |
-| `data/enhanced_magnetic_analysis.csv` | Enhanced analysis output |
+| `data/igrf14_linear_transects_*.csv` | **VERIFIED** IGRF-14 gradient results (15 sites) |
+| `data/igrf14_scale_sensitivity_*.csv` | Scale sensitivity analysis (5/15/50km) |
+| `data/inclination_isoline_analysis_*.csv` | Isoline-coast angle measurements |
+| `data/inclination_isoline_maps.png` | Contour maps for all 15 sites |
+| `data/magnetic_gradients.csv` | ⚠️ UNRELIABLE — AI-hallucinated values from May 2025 |
+| `data/bgs_magnetic_survey_2025-05-31.csv` | BGS radial survey (valid API data, but radial method) |
+| `data/whale_stranding_sites_verified.json` | Coordinates — mostly good, Tasmania & Matagorda ~100km off |
 
 ## Development Commands
 
@@ -100,20 +113,17 @@ source .venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
-# OR
-pip install -e .
+pip install ppigrf  # IGRF-14 local computation
 
-# Run main analysis
-python code/whale_stranding_quick_test.py
+# Run verified IGRF-14 transect analysis (local, no API needed)
+python code/corrected_bgs_linear_transects.py
 
-# Visualize magnetic gradients
-python code/magnetic_gradient_visualizer.py
+# Run inclination isoline geometry analysis
+python code/inclination_isoline_analysis.py
 
-# Run BGS data harvester (calls BGS API, rate-limited)
-python code/bgs_magnetic_harvester.py
-
-# Run comprehensive multi-site analysis
-python code/comprehensive_magnetic_analysis.py
+# Legacy scripts (use hallucinated NOAA data — for reference only)
+# python code/whale_stranding_quick_test.py
+# python code/bgs_magnetic_harvester.py
 ```
 
-Requires Python >= 3.10. Key dependencies: pandas, numpy, matplotlib, seaborn, scipy, requests.
+Requires Python >= 3.10. Key dependencies: pandas, numpy, matplotlib, seaborn, scipy, requests, ppigrf.
