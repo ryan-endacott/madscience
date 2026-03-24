@@ -238,12 +238,15 @@ outputs/                     # Figures, reports the AI generated
 4. **Enables Iteration**: Fail fast, learn faster
 5. **Preserves Everything**: Perfect documentation without effort
 6. **Surfaces Hidden Connections**: AI sees patterns across disciplines humans miss
-7. **Catches AI Errors**: Verification steps prevent garbage-in-garbage-out
+7. **Catches Errors Early**: Verification and replication prevent months of invalid work
+8. **Turns Failures Into Insights**: A replication failure (NOAA vs BGS) revealed more about methodology than a clean confirmation ever would
 
 ## Quick Reference Card
 
 **Start**: Just talk to your AI about something you're curious about
-**VERIFY FIRST**: Spot-check all foundational inputs before analysis
+**Verify First**: Treat all AI-generated data as unverified. Check against authoritative sources.
+**Human Checkpoints**: Identify what AI cannot verify (coordinates, spatial data). Get human sign-off.
+**Replicate**: Use at least two independent data sources for critical measurements.
 **Sprint Mode**: Test everything with existing data first
 **Push Back**: Always ask what existing data could help
 **Document**: You don't - AI does it all
@@ -255,7 +258,10 @@ outputs/                     # Figures, reports the AI generated
 A: No. Curiosity is enough. AI handles the technical parts.
 
 **Q: How do I avoid AI hallucinations?**
-A: Always verify foundational inputs. Visualize geographic data. Cross-check key claims.
+A: Assume all AI-generated factual data is wrong until verified against authoritative sources. Coordinates, citations, and measurements are especially unreliable. See the Three Foundational Rules above.
+
+**Q: My results look great with one data source. Am I done?**
+A: No. Replicate with an independent source. Our whale study showed 100% confirmation with NOAA data that dropped to 25% with BGS data. One source is not enough.
 
 **Q: What if I want to type/edit?**
 A: You can always review and edit the journal, but it's never required.
@@ -276,7 +282,7 @@ Share your discoveries. Build on others' findings. Help create a world where sci
 
 ---
 
-*Based on the whale stranding discovery: 72 hours from question to major methodological insight about AI limitations in research. Zero valid data, one transformative lesson about verification.*
+*Based on the whale stranding study: 72 hours from question to major methodological insight. The hypothesis looked bulletproof until replication broke it. The coordinates looked right until a human checked a map. The real discovery was the workflow that caught both failures.*
 
 **#ScientificAISprint**
 
