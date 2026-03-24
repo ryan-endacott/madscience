@@ -43,10 +43,12 @@ This is **Sprint Mode**: a new way of doing science that exhausts the knowable b
 ### The Sprint Way
 1. Interesting question arises
 2. Mine existing databases (hours)
-3. Run computational experiments (days)
-4. Test 100+ hypotheses virtually (week)
-5. Identify the specific data gaps
-6. Collect only the data that matters
+3. **Verify all foundational data** against authoritative sources (mandatory)
+4. Run computational experiments (days)
+5. **Replicate with independent data sources** (mandatory)
+6. Test 100+ hypotheses virtually (week)
+7. Identify the specific data gaps
+8. Collect only the data that matters
 
 ## The Two Modes of Scientific Discovery
 
@@ -86,6 +88,20 @@ Meanwhile, AI has given us unprecedented ability to:
 
 The bottleneck is no longer computation or data—it's imagination and methodology.
 
+## The Hard Lessons: What the Whales Taught Us
+
+Speed without rigor is just fast failure. The whale study proved that Sprint Mode needs guardrails, and those guardrails are now core to the methodology.
+
+**AI hallucinates data.** Our AI generated geographic coordinates for whale stranding sites that were 2-104 km from their actual locations. The numbers looked perfectly reasonable. The analysis ran without errors. The results meant nothing. Any factual data produced by AI — coordinates, citations, measurements — must be verified against authoritative sources before it touches your analysis.
+
+**One data source is not enough.** Our "magnetic uphill trap" hypothesis showed 100% confirmation across three sites using NOAA WMM data. When we replicated with BGS IGRF-14 data, the same sites showed 25% confirmation. Same coordinates, different authoritative model, opposite conclusions. If your result doesn't survive replication with an independent source, it isn't a result.
+
+**Data source methodology matters.** NOAA WMM and BGS IGRF-14 are both reputable, but they use different models and resolutions. A 15km linear transect and a 50km radial sample measure fundamentally different things. You must document and justify which source you use, and understand what its methodology actually captures.
+
+**Some tasks require a human.** AI cannot verify whether coordinates are coastal or inland. It cannot judge whether a transect is oriented seaward-to-landward. It cannot look at a map. The workflow must explicitly identify where human verification is mandatory — and stop until it happens.
+
+These aren't theoretical concerns. Every one of them burned us during real research.
+
 ## A Call to Scientists
 
 Imagine if every PhD student could test 1,000 hypotheses before running their first experiment.
@@ -99,7 +115,10 @@ This isn't about replacing experimental science—it's about doing it smarter. S
 ## The Framework
 
 We've developed a complete methodology for Scientific AI Sprints:
-- Journal-style documentation that preserves idea evolution
+- **Verification-first workflow** — verify data provenance and accuracy before analysis begins
+- **Human-in-the-loop checkpoints** — explicit gates where AI cannot substitute for human judgment
+- **Multi-source replication** — no result accepted until confirmed with independent data
+- Journal-style documentation that preserves idea evolution (including failures)
 - Structured workflows for hypothesis testing
 - Integration with modern tools (Git, AI, cloud compute)
 - Templates for organizing sprint-based research
@@ -110,7 +129,7 @@ It's all open source. Take it, improve it, share what you learn.
 
 Science doesn't have to be slow. The answers to many of our biggest questions may already be hiding in plain sight, scattered across databases and papers, waiting for someone to connect the dots.
 
-The whale strandings were just the beginning. What will you discover when you sprint?
+The whale strandings taught us how to sprint without tripping. What will you discover when you do?
 
 ---
 
