@@ -12,9 +12,9 @@ In 2025, we set out to understand why whales beach themselves. The traditional a
 
 Instead, we asked a different question: **What can we learn with the data that already exists?**
 
-In 72 hours, using public magnetic field databases and bathymetric maps, we discovered something that decades of expensive field studies had missed. A novel mechanism—inclino-bathymetric focusing—that explains why whales strand at specific beaches worldwide.
+In 72 hours, using public magnetic field databases and bathymetric maps, we developed a novel hypothesis—inclino-bathymetric focusing—for why whales strand at specific beaches worldwide. Initial results were striking. Then we tried to replicate them with an independent data source, and the picture got more complicated.
 
-We didn't collect a single new data point.
+We didn't collect a single new data point. And we learned something even more valuable than a clean result: **how to fail fast, verify ruthlessly, and iterate honestly.**
 
 ## The Discovery of Discovery
 
@@ -24,9 +24,9 @@ We started with a question to an AI: *"What's an example of a phenomenon where h
 
 No PhD in marine biology. No years studying cetaceans. Just curiosity and the right question.
 
-The AI surfaced whale strandings—a centuries-old mystery that has puzzled scientists, devastated communities, and killed thousands of intelligent creatures. Within 72 hours, by following the Sprint methodology, we had a novel, testable hypothesis that could save lives.
+The AI surfaced whale strandings—a centuries-old mystery that has puzzled scientists, devastated communities, and killed thousands of intelligent creatures. Within 72 hours, by following the Sprint methodology, we had a novel, testable hypothesis—and had already begun falsifying it with independent data. The hypothesis isn't proven yet. But the methodology for testing it at speed? That works.
 
-**This is the real revolution: AI doesn't just help us answer questions faster. It helps us find the right questions to ask.**
+**This is the real revolution: AI doesn't just help us answer questions faster. It helps us find the right questions to ask—and fail fast enough to ask better ones.**
 
 ## The Sprint Mode Revolution
 
@@ -114,7 +114,7 @@ The whale strandings were just the beginning. What will you discover when you sp
 
 ---
 
-*The Scientific AI Sprint methodology was developed during whale stranding research, where 72 hours of computational analysis revealed insights that had eluded decades of field studies. The complete framework is available at [link to repository].*
+*The Scientific AI Sprint methodology was developed during whale stranding research, where 72 hours of computational analysis generated, tested, and partially falsified a novel hypothesis—a process that would normally take years. The research is ongoing. The complete framework is available at [link to repository].*
 
 **Start your sprint today.**
 
